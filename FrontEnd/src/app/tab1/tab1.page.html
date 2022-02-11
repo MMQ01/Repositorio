@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title>
+      MARCA
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="add" (click)="openAlert()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>CÓDIGO</ion-col>
+    <ion-col>MARCA</ion-col>
+  </ion-row>
+  <ion-item-sliding *ngFor="let marca of marcas; let index">
+    <ion-item>
+    <ion-label>{{marca.idmarca}}</ion-label>
+    <ion-label>{{marca.marcaDescripcion}}</ion-label>
+    <ion-checkbox [checked]="marca.completed" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option (click)="deleteMarca(marca.idmarca, index)" color="danger">
+      <ion-icon name="trash"></ion-icon>
+    </ion-item-option>
+    <ion-item-option (click)="onUpdateMarca(marca.idmarca, index)" color="primary">
+      <ion-icon name="create"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+  </ion-item-sliding>
+
+  
+</ion-content>
+
+

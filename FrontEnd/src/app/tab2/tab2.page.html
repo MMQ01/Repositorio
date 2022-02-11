@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title>
+      PROVEEDOR
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="add" (click)="openAlert()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>CÓDIGO</ion-col>
+    <ion-col>PROVEEDOR</ion-col>
+  </ion-row>
+  <ion-item-sliding *ngFor="let proveedor of proveedores; let index">
+    <ion-item>
+      <ion-label>{{proveedor.idproveedor}}</ion-label>
+    <ion-label>{{proveedor.proveedorDescripcion}}</ion-label>
+    <ion-checkbox [checked]="proveedor.completed" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option (click)="deleteProveedor(proveedor.idproveedor, index)" color="danger">
+      <ion-icon name="trash"></ion-icon>
+    </ion-item-option>
+    <ion-item-option (click)="onupdateProveedor(proveedor.idproveedor, index)" color="primary">
+      <ion-icon name="create"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+  </ion-item-sliding>
+
+  
+</ion-content>
+
+

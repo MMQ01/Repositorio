@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" height="400">
+  <ion-toolbar height="400" >
+    <ion-title (click)="getAllMusica()"  >
+      Música (ADMIN)
+    </ion-title > 
+    <ion-buttons slot="primary">
+      <ion-icon slot="icon-only" name="refresh" (click)="getAllMusica()"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="add" (click)="openAlert()"></ion-icon>
+    </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col>CANCIÓN</ion-col>
+    <ion-col>USER</ion-col>
+    <ion-col>URL SUGERIDA</ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-item-sliding *ngFor="let musica of canciones; let index">
+    <ion-item>
+      <ion-col><ion-label>{{musica.nombreCancion}}</ion-label></ion-col>
+      <ion-col><ion-label>{{musica.Usuario}}</ion-label></ion-col>
+      <ion-col><a href="{{musica.urlCancion}}">URL Sugerida</a></ion-col>
+
+    <!---
+      <iframe width="200" height="150" src="{{musica.urlCancion}}"></iframe>
+    <a href="{{musica.urlCancion}}">URL Sugerida</a>
+  -->
+    <ion-checkbox [checked]="musica.completed" slot="start"></ion-checkbox>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option (click)="deleteMusic(musica.id, index)" color="danger">
+      <ion-icon name="trash"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+  </ion-item-sliding>
+</ion-row>
+</ion-content>
+
