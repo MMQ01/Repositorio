@@ -6,4 +6,4 @@ BackEnd->nodejs generar
 
 FrontEnd -> ionic
 1. npm install -g @ionic/cli
-2.
+
