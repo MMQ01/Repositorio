@@ -25,7 +25,7 @@ router.post('/music',(req,res)=>{
     const options = {
     
     //method: 'GET',
-    url: `https://www.googleapis.com/youtube/v3/search?key=AIzaSyAco_Y-hWeJ4vXsH3ECSC706ipMCpZf28I&type=video&part=snippet&maxResults=1&q=${q}`
+    url: `https://www.googleapis.com/youtube/v3/search?key=[your_key]&type=video&part=snippet&maxResults=1&q=${q}`
     };
     
     axios.get(options.url)
